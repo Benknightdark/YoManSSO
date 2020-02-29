@@ -30,7 +30,7 @@ namespace OAthLib.Services
             AccessUrl +="?response_type=code";
             AccessUrl += $"&client_id={googleConfig.ClientID}";
             AccessUrl += $"&redirect_uri={googleConfig.RedirectUrl}";
-            AccessUrl += "&scope=email openid";
+            AccessUrl += "&scope=email openid profile";
             // AccessUrl += $"&state={Guid.NewGuid()}";
             return (AccessUrl);
 
