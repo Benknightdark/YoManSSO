@@ -48,5 +48,12 @@ namespace OAthLib
                 .AddPolicyHandler(GetRetryPolicy())
                 .AddPolicyHandler(GetCircuitBreakerPolicy()); ;
         }
+        public static void AddGoogle(this IServiceCollection services)
+        {
+            services.AddHttpClient<GoogleService>()
+                 .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(10))
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy()); ;
+        }
     }
 }
