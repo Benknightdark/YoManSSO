@@ -22,6 +22,6 @@ jobs:
           release_name: ${{ github.ref }}
           body: |
             Changes in this Release
-            - test releaese yaml file
+            - update version
           draft: false
           prerelease: false
