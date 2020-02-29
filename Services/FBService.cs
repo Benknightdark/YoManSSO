@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using OAthLib.Models.FB;
+﻿using OAthLib.Models.FB;
 using OAthLib.Services.Helpers;
 using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace OAthLib.Services
@@ -45,7 +45,7 @@ namespace OAthLib.Services
             {
                 var bb = req.IsSuccessStatusCode;
                 var data = await req.Content.ReadAsStringAsync();
-                var resData = JsonConvert.DeserializeObject<FBAccessToken>(data);
+                var resData =  JsonSerializer.Deserialize<FBAccessToken>(data);
                 return resData;
             }
             catch (System.Exception e)
@@ -67,7 +67,7 @@ namespace OAthLib.Services
             {
                 var bb = req.IsSuccessStatusCode;
                 var data = await req.Content.ReadAsStringAsync();
-                var resData = JsonConvert.DeserializeObject<FBUserProfile>(data);
+                var resData =  JsonSerializer.Deserialize<FBUserProfile>(data);
                 return resData;
             }
             catch (System.Exception e)

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using OAthLib.Models.Google;
 using OAthLib.Services.Helpers;
 
@@ -51,7 +51,7 @@ namespace OAthLib.Services {
             var req = await Client.PostAsync ("https://oauth2.googleapis.com/token", new FormUrlEncodedContent (nvc));
             try {
                 var data = await req.Content.ReadAsStringAsync ();
-                var resData = JsonConvert.DeserializeObject<GoogleAccessToken> (data);
+                var resData = JsonSerializer.Deserialize<GoogleAccessToken> (data);
                 return resData;
             } catch (System.Exception e) {
                 throw e;
@@ -67,7 +67,7 @@ namespace OAthLib.Services {
             try {
                 var req = await Client.GetAsync ($"https://www.googleapis.com/oauth2/v1/userinfo?access_token={googleAccessToken.access_token}");
                 var data = await req.Content.ReadAsStringAsync ();
-                var resData = JsonConvert.DeserializeObject<GoogleUserProfile> (data);
+                var resData =  JsonSerializer.Deserialize<GoogleUserProfile> (data);
                 return resData;
 
             } catch (Exception e) {

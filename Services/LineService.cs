@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using OAthLib.Models.Line;
+﻿using OAthLib.Models.Line;
 using OAthLib.Services.Helpers;
 using System;
 using System.Collections.Generic;
@@ -8,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.Json;
 using System.Threading.Tasks;
 namespace OAthLib.Services
 {
@@ -82,7 +81,7 @@ namespace OAthLib.Services
             try
             {
                 var data = await req.Content.ReadAsStringAsync();
-                var nData = JsonConvert.DeserializeObject<LineUserProfile>(data);
+                var nData =  JsonSerializer.Deserialize<LineUserProfile>(data);
                 return nData;
             }
             catch (System.Exception e)
