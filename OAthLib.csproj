@@ -8,6 +8,10 @@
     <Company>Ben</Company>
     <Description>各種Single Sign on 讓你用到飽</Description>
     <PackageProjectUrl>https://github.com/Benknightdark/YoManSSO</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Benknightdark/YoManSSO</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <FileVersion>1.1.4.0</FileVersion>
+    <AssemblyVersion>1.1.4.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
