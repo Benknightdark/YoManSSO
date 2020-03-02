@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
+using OAthLib.Models.LinkedIn;
 using OAthLib.Services.Helpers;
 
 namespace OAthLib.Services
@@ -29,30 +32,30 @@ namespace OAthLib.Services
             return (AccessUrl);
 
         }
-        // /// <summary>
-        // /// 取得Google的AccessToken資料
-        // /// </summary>
-        // /// <param name="Code">授權碼</param>
-        // /// <returns></returns>
-        // public async Task<GoogleAccessToken> GetAccessToken (string Code) {
-        //     var googleConfigData = _config.GetGoogleConfig ();
+        /// <summary>
+        /// 取得LinkedIn的AccessToken資料
+        /// </summary>
+        /// <param name="Code">授權碼</param>
+        /// <returns></returns>
+        public async Task<LinkedInAccessToken> GetAccessToken (string Code) {
+            var linkedInConfigData = _config.GetLinkedInConfig ();
 
-        //     var nvc = new List<KeyValuePair<string, string>> ();
-        //     nvc.Add (new KeyValuePair<string, string> ("grant_type", "authorization_code"));
-        //     nvc.Add (new KeyValuePair<string, string> ("code", Code));
-        //     nvc.Add (new KeyValuePair<string, string> ("redirect_uri", googleConfigData.RedirectUrl));
-        //     nvc.Add (new KeyValuePair<string, string> ("client_id", googleConfigData.ClientID));
-        //     nvc.Add (new KeyValuePair<string, string> ("client_secret", googleConfigData.ClientSecret));
+            var nvc = new List<KeyValuePair<string, string>> ();
+            nvc.Add (new KeyValuePair<string, string> ("grant_type", "authorization_code"));
+            nvc.Add (new KeyValuePair<string, string> ("code", Code));
+            nvc.Add (new KeyValuePair<string, string> ("redirect_uri", linkedInConfigData.RedirectUrl));
+            nvc.Add (new KeyValuePair<string, string> ("client_id", linkedInConfigData.ClientID));
+            nvc.Add (new KeyValuePair<string, string> ("client_secret", linkedInConfigData.ClientSecret));
 
-        //     var req = await Client.PostAsync ("https://oauth2.googleapis.com/token", new FormUrlEncodedContent (nvc));
-        //     try {
-        //         var data = await req.Content.ReadAsStringAsync ();
-        //         var resData = JsonSerializer.Deserialize<GoogleAccessToken> (data);
-        //         return resData;
-        //     } catch (System.Exception e) {
-        //         throw e;
-        //     }
-        // }
+            var req = await Client.PostAsync ("https://www.linkedin.com/oauth/v2/accessToken", new FormUrlEncodedContent (nvc));
+            try {
+                var data = await req.Content.ReadAsStringAsync ();
+                var resData = JsonSerializer.Deserialize<LinkedInAccessToken> (data);
+                return resData;
+            } catch (System.Exception e) {
+                throw e;
+            }
+        }
 
         // /// <summary>
         // /// 取得Google 使用者profile
