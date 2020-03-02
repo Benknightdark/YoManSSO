@@ -3,17 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>YoManSSO</PackageId>
-    <Version>1.1.4.1</Version>
+    <Version>1.1.4.2</Version>
     <Authors>Ben</Authors>
     <Company>Ben</Company>
     <Description>各種Single Sign on 讓你用到飽</Description>
     <PackageProjectUrl>https://github.com/Benknightdark/YoManSSO</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Benknightdark/YoManSSO</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <FileVersion>1.1.4.1</FileVersion>
-    <AssemblyVersion>1.1.4.1</AssemblyVersion>
-    <PackageReleaseNotes>使用方式：
-https://github.com/Benknightdark/YoManSSO</PackageReleaseNotes>
+    <FileVersion>1.1.4.2</FileVersion>
+    <AssemblyVersion>1.1.4.2</AssemblyVersion>
+    <PackageReleaseNotes>
+    使用方式：https://github.com/Benknightdark/YoManSSO
+    範例程式：https://github.com/Benknightdark/YoManSSOExample
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
