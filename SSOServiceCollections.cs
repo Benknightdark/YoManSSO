@@ -55,5 +55,13 @@ namespace OAthLib
                 .AddPolicyHandler(GetRetryPolicy())
                 .AddPolicyHandler(GetCircuitBreakerPolicy()); ;
         }
+
+        public static void AddLinkedIn(this IServiceCollection services)
+        {
+            services.AddHttpClient<LinkedInService>()
+                 .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(10))
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy()); ;
+        }
     }
 }

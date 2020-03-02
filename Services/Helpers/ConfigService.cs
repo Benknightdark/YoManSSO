@@ -2,6 +2,7 @@
 using OAthLib.Models.FB;
 using OAthLib.Models.Google;
 using OAthLib.Models.Line;
+using OAthLib.Models.LinkedIn;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -36,6 +37,12 @@ namespace OAthLib.Services.Helpers
         {
             var appConfig = new GoogleConfig();
             _config.GetSection("Google").Bind(appConfig);
+            return appConfig;
+        }
+        public LinkedInConfig GetLinkedInConfig()
+        {
+            var appConfig = new LinkedInConfig();
+            _config.GetSection("LinkedIn").Bind(appConfig);
             return appConfig;
         }
     }
