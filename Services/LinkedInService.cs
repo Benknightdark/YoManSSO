@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using OAthLib.Models.LinkedIn;
@@ -57,21 +59,24 @@ namespace OAthLib.Services
             }
         }
 
-        // /// <summary>
-        // /// 取得Google 使用者profile
-        // /// </summary>
-        // /// <param name="lineAccessToken">AccessToken</param>
-        // /// <returns></returns>
-        // public async Task<GoogleUserProfile> GetUserProfile (GoogleAccessToken googleAccessToken) {
-        //     try {
-        //         var req = await Client.GetAsync ($"https://www.googleapis.com/oauth2/v1/userinfo?access_token={googleAccessToken.access_token}");
-        //         var data = await req.Content.ReadAsStringAsync ();
-        //         var resData =  JsonSerializer.Deserialize<GoogleUserProfile> (data);
-        //         return resData;
+        /// <summary>
+        /// 取得Google 使用者profile
+        /// </summary>
+        /// <param name="lineAccessToken">AccessToken</param>
+        /// <returns></returns>
+        public async Task<LinkedInProfile> GetUserProfile (LinkedInAccessToken linkedInAccessToken) {
+            try {
+                Client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", linkedInAccessToken.access_token);
+                
+                var req = await Client.GetAsync ($"https://api.linkedin.com/v2/me");
+                var data = await req.Content.ReadAsStringAsync ();
+                var resData =  JsonSerializer.Deserialize<LinkedInProfile> (data);
+                return resData;
 
-        //     } catch (Exception e) {
-        //         throw e;
-        //     }
-        // }
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
 }
