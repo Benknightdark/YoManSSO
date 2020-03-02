@@ -13,7 +13,7 @@
     <FileVersion>1.1.4.1</FileVersion>
     <AssemblyVersion>1.1.4.1</AssemblyVersion>
     <PackageReleaseNotes>使用方式：
-https://github.com/Benknightdark/YoManSSO/blob/master/Readme.md</PackageReleaseNotes>
+https://github.com/Benknightdark/YoManSSO</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
