@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>YoManSSO</PackageId>
-    <Version>1.1.3</Version>
+    <Version>1.1.4</Version>
     <Authors>Ben</Authors>
     <Company>Ben</Company>
     <Description>各種Single Sign on 讓你用到飽</Description>
