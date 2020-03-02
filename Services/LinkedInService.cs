@@ -15,7 +15,6 @@ namespace OAthLib.Services
         private ConfigService _config { get; }
         public LinkedInService (HttpClient client, ConfigService config) {
             _config = config;
-            // client.BaseAddress = new System.Uri("https://oauth2.googleapis.com");
             Client = client;
         }
         /// <summary>
@@ -60,7 +59,7 @@ namespace OAthLib.Services
         }
 
         /// <summary>
-        /// 取得Google 使用者profile
+        /// 取得LinkedIn 使用者profile
         /// </summary>
         /// <param name="lineAccessToken">AccessToken</param>
         /// <returns></returns>
