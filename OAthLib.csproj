@@ -12,6 +12,8 @@
     <RepositoryType>GitHub</RepositoryType>
     <FileVersion>1.1.4.0</FileVersion>
     <AssemblyVersion>1.1.4.0</AssemblyVersion>
+    <PackageReleaseNotes>使用方式：
+https://github.com/Benknightdark/YoManSSO/blob/master/Readme.md</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
