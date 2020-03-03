@@ -3,4 +3,5 @@
 - ✔️ FB
 - ✔️ Google
 - ✔️ LinkedIn
+- ❌ Twitter 
 - ❌ MS 
