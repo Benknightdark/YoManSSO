@@ -63,7 +63,7 @@ namespace OAthLib.Services {
         /// </summary>
         /// <param name="lineAccessToken">AccessToken</param>
         /// <returns></returns>
-        public async Task<GoogleUserProfile> GetUserProfile (GoogleAccessToken googleAccessToken) {
+        public async Task<GoogleUserProfile> GetProfile (GoogleAccessToken googleAccessToken) {
             try {
                 var req = await Client.GetAsync ($"https://www.googleapis.com/oauth2/v1/userinfo?access_token={googleAccessToken.access_token}");
                 var data = await req.Content.ReadAsStringAsync ();

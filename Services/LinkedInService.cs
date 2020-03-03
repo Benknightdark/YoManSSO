@@ -63,7 +63,7 @@ namespace OAthLib.Services
         /// </summary>
         /// <param name="lineAccessToken">AccessToken</param>
         /// <returns></returns>
-        public async Task<LinkedInProfile> GetUserProfile (LinkedInAccessToken linkedInAccessToken) {
+        public async Task<LinkedInProfile> GetProfile (LinkedInAccessToken linkedInAccessToken) {
             try {
                 Client.DefaultRequestHeaders.Authorization =
                         new AuthenticationHeaderValue("Bearer", linkedInAccessToken.access_token);

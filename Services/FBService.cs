@@ -59,7 +59,7 @@ namespace OAthLib.Services
         /// </summary>
         /// <param name="fBAccessToken"></param>
         /// <returns></returns>
-        public async Task<FBUserProfile> GetUserProfile(FBAccessToken fBAccessToken)
+        public async Task<FBUserProfile> GetProfile(FBAccessToken fBAccessToken)
         {
             var url = $"/me?access_token={fBAccessToken.access_token}";
             var req = await Client.GetAsync(url);
