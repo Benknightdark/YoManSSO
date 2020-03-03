@@ -63,14 +63,14 @@ namespace OAthLib.Services
         /// </summary>
         /// <param name="lineAccessToken">AccessToken</param>
         /// <returns></returns>
-        public async Task<LinkedInProfile> GetProfile (LinkedInAccessToken linkedInAccessToken) {
+        public async Task<LinkedInUserProfile> GetProfile (LinkedInAccessToken linkedInAccessToken) {
             try {
                 Client.DefaultRequestHeaders.Authorization =
                         new AuthenticationHeaderValue("Bearer", linkedInAccessToken.access_token);
                 
                 var req = await Client.GetAsync ($"https://api.linkedin.com/v2/me");
                 var data = await req.Content.ReadAsStringAsync ();
-                var resData =  JsonSerializer.Deserialize<LinkedInProfile> (data);
+                var resData =  JsonSerializer.Deserialize<LinkedInUserProfile> (data);
                 return resData;
 
             } catch (Exception e) {
