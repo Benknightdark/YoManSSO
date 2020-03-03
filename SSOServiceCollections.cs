@@ -63,5 +63,12 @@ namespace OAthLib
                 .AddPolicyHandler(GetRetryPolicy())
                 .AddPolicyHandler(GetCircuitBreakerPolicy()); ;
         }
+         public static void AddMS(this IServiceCollection services)
+        {
+            services.AddHttpClient<MSService>()
+                 .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(10))
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy()); ;
+        }
     }
 }
