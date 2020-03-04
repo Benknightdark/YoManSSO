@@ -111,7 +111,7 @@ var LineUserEmail=await _lineService.GetEmail(LineAccessToken);
 string LinkedInAuthorizeCode="@#$%";
 // AccessToken
 var LinkedInAccessToken = await _linkedInService.GetAccessToken (LinkedInAuthorizeCode);
-// Line使用者資料
+// LinkedIn使用者資料
 var LinkedInUserProfile=await _linkedInService.GetProfile (LinkedInAccessToken);
 
 // Microsoft
