@@ -103,6 +103,8 @@ string LineAuthorizeCode="12312312vvvv";
 var LineAccessToken = await _lineService.GetAccessToken (LineAuthorizeCode);
 // Line使用者資料
 var LineUserProfile=await _lineService.GetProfile (LineAccessToken);
+// Line使用者Email
+var LineUserEmail=await _lineService.GetEmail(LineAccessToken);
 
 // LinkedIn
 // 授權碼
