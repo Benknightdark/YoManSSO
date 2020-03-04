@@ -80,6 +80,68 @@
             _msService = msService;
         }
 ```
+* 取得OAuth2 登入畫面網址
+``` c#
+// Line OAuth2 登入畫面網址
+string LineAccessUrl = await _lineService.GetAccessUrl ();
+// Facebook OAuth2 登入畫面網址
+string FBAccessUrl = await _fBService.GetAccessUrl ();
+// Google OAuth2 登入畫面網址
+string GoogelAccessUrl = await _googleService.GetAccessUrl ();
+// LinkedIn OAuth2 登入畫面網址
+string LinkedAccessUrl = await _linkedService.GetAccessUrl ();
+// Microsoft OAuth2 登入畫面網址
+string MSAccessUrl = await _msService.GetAccessUrl ();
+```
+
+* 取得AccessToken和使用者資料
+``` c#
+// Line 
+// 授權碼
+string LineAuthorizeCode="12312312vvvv";
+// AccessToken
+var LineAccessToken = await _lineService.GetAccessToken (LineAuthorizeCode);
+// Line使用者資料
+var LineUserProfile=await _lineService.GetProfile (LineAccessToken)
+
+// LinkedIn
+// 授權碼
+string LinkedInAuthorizeCode="@#$%";
+// AccessToken
+var LinkedInAccessToken = await _linkedInService.GetAccessToken (LinkedInAuthorizeCode);
+// Line使用者資料
+
+var LinkedInUserProfile=await _linkedInService.GetProfile (LinkedInAccessToken)
+
+
+// Microsoft
+// 授權碼
+string MSAuthorizeCode="12312312vvvv";;
+var MSAccessToken = await _msService.GetAccessToken (MSAuthorizeCode);
+// Microsoft使用者資料
+
+var MSleUserProfile=await _msService.GetProfile (MSAccessToken)
+
+// Google
+// 授權碼
+string GoogleAuthorizeCode="POIJH00";
+// AccessToken
+
+var GoogleAccessToken = await _googleService.GetAccessToken (GoogleAuthorizeCode);
+// Google使用者資料
+
+var GoogleUserProfile=await _googleService.GetProfile (GoogleAccessToken)
+
+// Facebook
+// 授權碼
+string FBAuthorizeCode="%^&*";
+// AccessToken
+
+var FBAccessToken = await _fBService.GetAccessToken (FBAuthorizeCode);
+// Facebook使用者資料
+
+var FBUserProfile=await _fBService.GetProfile (FBAccessToken)
+```
 # TODO
 - 客製化Scope參數
 - 回傳客製化錯誤訊息
