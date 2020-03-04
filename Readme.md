@@ -9,11 +9,11 @@
 # Nuget下載網址
 - https://www.nuget.org/packages/YoManSSO/
 # 使用方式
-* 注入服務
+* 加入服務
   ```
   // 在Startup.cs檔的ConfigureServices Method加入以下程式
 
-  // 讀取OAuth2 appsetting.json的Service
+  // 讀取OAuth2 appsetting.json參數資料的Service
   SSOServiceCollections.AddSSOConfig (services);
 
   // Line相關的Service
@@ -59,6 +59,26 @@
     "ClientSecret": "[Your Micorsoft App ClientSecret]",
     "RedirectUrl": "[Your Micorsoft App Redirect Url]"
   }
+```
+* 注入服務
+``` C#
+        // Line
+        private LineService _lineService ;
+        // Facebook
+        private FBService _fBService ;
+        // Google
+        private GoogleService _googleService ;
+        // LinkedIn
+        private LinkedInService _linkedService ;
+        // Microsoft
+        private MSService _msService;
+        public HomeController ( LineService lineService, FBService fBService, GoogleService googleService, LinkedInService linkedService, MSService msService) {
+            _lineService = lineService;
+            _fBService = fBService;
+            _googleService = googleService;
+            _linkedService = linkedService;
+            _msService = msService;
+        }
 ```
 # TODO
 - 客製化Scope參數
