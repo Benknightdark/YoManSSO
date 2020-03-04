@@ -102,7 +102,7 @@ string LineAuthorizeCode="12312312vvvv";
 // AccessToken
 var LineAccessToken = await _lineService.GetAccessToken (LineAuthorizeCode);
 // Line使用者資料
-var LineUserProfile=await _lineService.GetProfile (LineAccessToken)
+var LineUserProfile=await _lineService.GetProfile (LineAccessToken);
 
 // LinkedIn
 // 授權碼
@@ -110,14 +110,14 @@ string LinkedInAuthorizeCode="@#$%";
 // AccessToken
 var LinkedInAccessToken = await _linkedInService.GetAccessToken (LinkedInAuthorizeCode);
 // Line使用者資料
-var LinkedInUserProfile=await _linkedInService.GetProfile (LinkedInAccessToken)
+var LinkedInUserProfile=await _linkedInService.GetProfile (LinkedInAccessToken);
 
 // Microsoft
 // 授權碼
-string MSAuthorizeCode="12312312vvvv";;
+string MSAuthorizeCode="12312312vvvv";
 var MSAccessToken = await _msService.GetAccessToken (MSAuthorizeCode);
 // Microsoft使用者資料
-var MSleUserProfile=await _msService.GetProfile (MSAccessToken)
+var MSleUserProfile=await _msService.GetProfile (MSAccessToken);
 
 // Google
 // 授權碼
@@ -125,7 +125,7 @@ string GoogleAuthorizeCode="POIJH00";
 // AccessToken
 var GoogleAccessToken = await _googleService.GetAccessToken (GoogleAuthorizeCode);
 // Google使用者資料
-var GoogleUserProfile=await _googleService.GetProfile (GoogleAccessToken)
+var GoogleUserProfile=await _googleService.GetProfile (GoogleAccessToken);
 
 // Facebook
 // 授權碼
@@ -133,7 +133,7 @@ string FBAuthorizeCode="%^&*";
 // AccessToken
 var FBAccessToken = await _fBService.GetAccessToken (FBAuthorizeCode);
 // Facebook使用者資料
-var FBUserProfile=await _fBService.GetProfile (FBAccessToken)
+var FBUserProfile=await _fBService.GetProfile (FBAccessToken);
 ```
 # TODO
 - 客製化Scope參數
