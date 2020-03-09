@@ -75,5 +75,22 @@ namespace OAthLib.Services
                 throw e;
             }
         }
+    
+        public async Task<FBApplicationInfo> GetAppicationInfo(FBAccessToken fBAccessToken){
+            var fbConfig=_config.GetFBConfig();
+            var url = $"/{fbConfig.ClientID}?access_token={fBAccessToken.access_token}";
+            var req = await Client.GetAsync(url);
+            try
+            {
+                var bb = req.IsSuccessStatusCode;
+                var data = await req.Content.ReadAsStringAsync();
+                 var resData =  JsonSerializer.Deserialize<FBApplicationInfo>(data);
+                return resData;
+            }
+            catch (System.Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
