@@ -61,7 +61,7 @@ namespace OAthLib.Services {
         /// <summary>
         /// 取得Google 使用者profile
         /// </summary>
-        /// <param name="lineAccessToken">AccessToken</param>
+        /// <param name="googleAccessToken">AccessToken</param>
         /// <returns></returns>
         public async Task<GoogleUserProfile> GetProfile (GoogleAccessToken googleAccessToken) {
             try {
@@ -74,5 +74,18 @@ namespace OAthLib.Services {
                 throw e;
             }
         }
+
+        // public async Task<string> GetApplicationInfo (GoogleAccessToken googleAccessToken) {
+        //     try {
+
+        //         // var req = await Client.GetAsync ($"https://www.googleapis.com/oauth2/v1/userinfo?access_token={googleAccessToken.access_token}");
+        //         // var data = await req.Content.ReadAsStringAsync ();
+        //         // var resData =  JsonSerializer.Deserialize<GoogleUserProfile> (data);
+        //         // return resData;
+
+        //     } catch (Exception e) {
+        //         throw e;
+        //     }
+        // }
     }
 }
